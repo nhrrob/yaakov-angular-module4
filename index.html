@@ -1,30 +1,30 @@
-<!doctype html>
-<html lang="en" ng-app="NarrowItDownApp">
+<!DOCTYPE html>
+<html>
   <head>
-    <title>Module 4 - Narrow Down Your Menu Choice</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/styles.css">
-    <script src="angular.min.js"></script>
-    <script src="app.js"></script>
+    <meta charset="utf-8">
+    <title>Restaurant Menu App</title>
   </head>
-<body >
-   <div class="container" ng-controller="NarrowItDownController as nitdown">
-    <h1>Narrow Down Your Chinese Menu Choice</h1>
+  <body ng-app='MenuApp'>
+    <h1>Welcome to our Restaurant</h1>
 
-    <div class="form-group">
-      <input type="text" placeholder="search term" ng-model="nitdown.searchTerm" class="form-control">
-    </div>
-    <div class="form-group narrow-button">
-      <button class="btn btn-primary" ng-click="nitdown.getMatchedMenuItems();">Narrow It Down For Me!</button>
-    </div>
+    <ui-view></ui-view>
 
-    <!-- found-items should be implemented as a component -->
-    <div ng-if="nitdown.found.length == 0">Nothing found.</div>
-    <div ng-if="nitdown.found.length != 0">
-      <found-items list="nitdown.found" on-remove="nitdown.removeItem(index)"></found-items>
-    </div>
-  </div>
+    <!-- Libraries -->
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
 
-</body>
+    <!-- Modules -->
+    <script src="app/menuapp.module.js"></script>
+    <script src="service/data.module.js"></script>
+
+    <!-- Routes -->
+    <script src="routes.js"></script>
+
+    <script src="app/categories.component.js"></script>
+    <script src="app/items.component.js"></script>
+    <script src="app/category-list.controller.js"></script>
+    <script src="app/items.controller.js"></script>
+    <script src="service/menudata.service.js"></script>
+
+  </body>
 </html>
